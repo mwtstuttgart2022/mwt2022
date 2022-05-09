@@ -1,0 +1,23 @@
+#' @title latex2fun_safe
+#'
+#' @param code : character string in Latex language
+#'
+#' @return Latex expression translated into R code
+#' @import latex2r
+latex2fun_safe = function(code) {
+  if (is.null(code)) {
+    return(NULL)
+  }
+  tryCatch({
+    latex2r(code)
+  },
+  latex2r.error = function(cnd) {
+    showNotification(
+      paste("Error when translating to R code -", cnd$message),
+      type = "error"
+    )
+  },
+  error = function(cnd) {
+    showNotification("Unexpected error", type = "error")
+  })
+}
