@@ -7,11 +7,11 @@
 latex2fun_safe(latex_string)
 }
 \arguments{
-\item{code}{: character string in Latex language}
+\item{latex_string}{: character string in Latex language}
 }
 \value{
-Latex expression translated into R code
+fun_out : function object built from Latex string input
 }
 \description{
-latex2fun_safe
+Works similar to latex2r::latex2fun with additional input constraints
 }
