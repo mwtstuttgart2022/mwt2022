@@ -16,3 +16,13 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Language: en-US
+Collate: 
+    'app_config.R'
+    'app_server.R'
+    'app_ui.R'
+    'fun-latex2r_safe.R'
+    'fun-latex2fun_safe.R'
+    'golem_utils_server.R'
+    'mod_cantor_function.R'
+    'mod_treppenfunktion_approx.R'
+    'run_app.R'

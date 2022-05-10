@@ -3,21 +3,19 @@
 #' @param code : character string in Latex language
 #'
 #' @return Latex expression translated into R code
-#' @import latex2r
-latex2fun_safe = function(code) {
-  if (is.null(code)) {
-    return(NULL)
+#' @include fun-latex2r_safe.R
+#' @import dplyr
+latex2fun_safe = function (latex_string)
+{
+  fun_body = latex2r_safe(latex_string)
+  variables <- all.vars(
+    as.formula(paste("~", fun_body))
+  )
+  if (grepl("=", fun_body)) {
+    stop("Expression contains assignment.")
   }
-  tryCatch({
-    latex2r(code)
-  },
-  latex2r.error = function(cnd) {
-    showNotification(
-      paste("Error when translating to R code -", cnd$message),
-      type = "error"
-    )
-  },
-  error = function(cnd) {
-    showNotification("Unexpected error", type = "error")
-  })
+  if (variables[!variables %in% c("x", "pi")] %>% length() != 0) {
+    stop("Expression contains other variable than x.")
+  }
+  pryr::make_function(alist(x = ), parse(text = fun_body)[[1]])
 }
