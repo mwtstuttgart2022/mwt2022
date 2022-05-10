@@ -6,8 +6,17 @@ Description: A shiny app bundle for different toy applications.
 License: MIT + file LICENSE
 Imports: 
     config (>= 0.3.1),
+    dplyr,
+    ggplot2,
     golem (>= 0.3.2),
-    shiny (>= 1.7.1)
+    greekLetters,
+    latex2r,
+    magrittr,
+    pkgload,
+    pryr,
+    shiny (>= 1.7.1),
+    shinymath,
+    stats
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2

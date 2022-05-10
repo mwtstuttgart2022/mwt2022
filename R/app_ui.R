@@ -10,10 +10,19 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      h1("mwt2022"),
-      mod_treppenfunktion_approx_ui("treppenfunktion_approx_1")
+      titlePanel("MWT-App"),
+      tabsetPanel(
+        tabPanel(
+          "Cantor-Funktion",
+          mod_cantor_function_ui("cantor_function_1")
+                 ),
+        tabPanel(
+          "Approximation durch Treppenfunktionen",
+          mod_treppenfunktion_approx_ui("treppenfunktion_approx_1")
+          )
+        )
+      )
     )
-  )
 }
 
 #' Add external Resources to the Application

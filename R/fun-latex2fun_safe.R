@@ -4,6 +4,7 @@
 #' @return fun_out : function object built from Latex string input
 #' @include fun-latex2r_safe.R
 #' @import dplyr
+#' @export
 latex2fun_safe = function (latex_string) {
 
   #translate latex string
@@ -20,7 +21,7 @@ latex2fun_safe = function (latex_string) {
 
   ###extract variables from function body
 
-  variables <- fun_body %>% paste("~", .) %>% as.formula() %>% all.vars()
+  variables <- paste("~", fun_body) %>% stats::as.formula() %>% all.vars()
 
   stopifnot(
     "Expression contains other variable than x." =
