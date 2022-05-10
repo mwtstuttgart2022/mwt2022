@@ -58,6 +58,23 @@ test_that("latex2fun_safe works", {
 
 
 
+  #output
+
+  actual_function <- latex2fun_safe("e^{x\\cdot\\pi}")
+
+  expected_function <- function(x) {
+    exp(x * pi)
+  }
+
+  testthat::expect_equal(
+    sapply(1:10, expected_function),
+    sapply(1:10, expected_function)
+    )
+
+
+
+
+
 
 
 })

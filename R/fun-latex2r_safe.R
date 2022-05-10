@@ -4,7 +4,7 @@
 #'
 #' @return Latex expression translated into R code
 #' @import latex2r
-latex2r_safe = function(code) {
+latex2r_safe = function(code = NULL) {
   if (is.null(code)) {
     return(NULL)
   }

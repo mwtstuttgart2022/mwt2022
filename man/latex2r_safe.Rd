@@ -4,7 +4,7 @@
 \alias{latex2r_safe}
 \title{latex2r_safe}
 \usage{
-latex2r_safe(code)
+latex2r_safe(code = NULL)
 }
 \arguments{
 \item{code}{: character string in Latex language}
